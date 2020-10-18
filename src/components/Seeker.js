@@ -4,13 +4,20 @@ class Seeker extends React.Component {
     constructor(){
         super();
         this.state = {
-          isSeekerClicked:"false",
+          isSeekerClicked:false
         };
+      }
+
+
+      handleForm = (e) => {
+          e.preventDefault();
+       this.setState({isSeekerClicked:true})
       }
     render() {
         const{isSeekerClicked} = this.state;
 
         return (
+            isSeekerClicked?
             <form className="job-form">
             <input id="job-seeker" type="text" placeholder="Name" required />
             <input id="job-seeker" type="text" placeholder="Email" required />
@@ -35,7 +42,7 @@ class Seeker extends React.Component {
              <button id="broadcast-btn">Broadcast</button>
         </div>
  
-          </form>
+          </form>:<a href=""onClick={this.handleForm}>Job Seeker</a>
         );
     }
 }
